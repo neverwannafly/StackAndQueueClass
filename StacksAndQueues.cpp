@@ -175,6 +175,7 @@ type Queue<type>::dequeueAndReturnData() {
         return dequeueAndReturnDataPrivate(head, tail);
     }
     catch(...) {
+        cerr << "Queue Already Empty\n";
         return 0;
     }
 }
@@ -187,6 +188,7 @@ type Queue<type>::returnFirst() const {
         return returnPrivate(head);
     }
     catch(...) {
+        cerr << "Queue is Empty\n";
         return 0;
     }
 }
@@ -196,6 +198,7 @@ type Queue<type>::returnLast() const {
         return returnPrivate(tail);
     }
     catch(...) {
+        cerr << "Queue is empty\n";
         return 0;
     }
 }
@@ -242,12 +245,17 @@ void Stack<type>::pushPrivate(type data, Node<type> *&nodePtr) {
 template <class type>
 /** Removes an element from the Stack.			**/
 void Stack<type>::popPrivate(Node<type> *&nodePtr) {
-    Node<type> *tempPtr;
-    tempPtr = nodePtr;
-    nodePtr = nodePtr->next;
-    tempPtr->next = NULL;
-    size--;
-    delete tempPtr;
+    if(!isUnderFlow()) {
+        Node<type> *tempPtr;
+        tempPtr = nodePtr;
+        nodePtr = nodePtr->next;
+        tempPtr->next = NULL;
+        size--;
+        delete tempPtr;
+    }
+    else {
+        throw "UnderFlow Error\n";
+    }
 }
 template <class type>
 /** Adds an element to the Stack and return it's value **/
@@ -258,14 +266,19 @@ type Stack<type>::pushAndReturnDataPrivate(type data, Node<type> *&nodePtr) {
 template <class type>
 /** Removes an element from the Stack and return it's value **/
 type Stack<type>::popAndReturnDataPrivate(Node<type> *&nodePtr) {
-    Node<type> *tempPtr;
-    tempPtr = nodePtr;
-    nodePtr = nodePtr->next;
-    tempPtr->next = NULL;
-    type dataToBeDeleted = tempPtr->data;
-    size--;
-    delete tempPtr;
-    return dataToBeDeleted;
+    if(!isUnderFlow()) {
+        Node<type> *tempPtr;
+        tempPtr = nodePtr;
+        nodePtr = nodePtr->next;
+        tempPtr->next = NULL;
+        type dataToBeDeleted = tempPtr->data;
+        size--;
+        delete tempPtr;
+        return dataToBeDeleted;
+    } 
+    else {
+        throw "UnderFlow Error\n";
+    }
 }
 
 // -> Access Member Functions
@@ -318,7 +331,12 @@ void Stack<type>::push(type data) {
 }
 template <class type>
 void Stack<type>::pop() {
-    popPrivate(head);
+    try {
+        popPrivate(head);
+    }
+    catch(...) {
+        cerr << "Stack is already empty\n";
+    }
 }
 template <class type>
 type Stack<type>::pushAndReturnData(type data) {
@@ -326,14 +344,27 @@ type Stack<type>::pushAndReturnData(type data) {
 }
 template <class type>
 type Stack<type>::popAndReturnData() {
-    return popAndReturnDataPrivate(head);
+    try {
+        return popAndReturnDataPrivate(head);
+        return 0;
+    }
+    catch(...) {
+        cerr << "Stack is already empty\n";
+        return 0;
+    }
 }
 
 // -> Access Member Functions
 
 template <class type>
 type Stack<type>::returnTop() const {
-    return returnTopPrivate(head);
+    try {
+        return returnTopPrivate(head);
+    }
+    catch(...) {
+        cerr << "Stack is already empty\n";
+        return 0;
+    }
 }
 template <class type>
 bool Stack<type>::isUnderFlow() const {
