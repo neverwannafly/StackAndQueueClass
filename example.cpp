@@ -18,16 +18,11 @@
 bool isCharacterNumber(std::string character) {
 	bool condition = false;
 	char numberArray[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-	 
-	//This function is written assuming that user is not
-	//fukin Autistic. If user is indeed autistic, I am in
-	//no fukin mood to write a 0(N^2) routine to confirm that
-	//input string is indeed a number. PEACE !
-
-	char firstDigit = character[0];
-
-	for(int i=0; i<=9; i++) {
-		condition |= firstDigit==numberArray[i];
+	
+	for (int i=0; i<character.size(); i++) {
+		for(int j=0; j<=9; j++) {
+			condition &= character[i]==numberArray[j];
+		}
 	}
 
 	 return condition;
