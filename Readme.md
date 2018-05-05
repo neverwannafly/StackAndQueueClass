@@ -1,9 +1,13 @@
 # StackAndQueueClass
 The following class helps in implementing Stack/Queue ADT.
 
-## How to implement the Class ->
-1) Add StacksAndQueues.hpp StacksAndQueues.cpp and StacksQueues.hpp into your project and keep them in the same directory.
-2) use include "StacksQueues.hpp" in your C++ file to use the StackAndQueueClass.
+## How to import the Class ->
+1) Add StacksQueues directory to your project workspace
+2) use the following in your C++ file to use the StackAndQueueClass->
+```
+#include "Path/to/Directory/StacksQueues/StacksQueues.hpp"
+```
+3) Check out example.cpp for an example!
 
 ## How to make objects of Class ->
 #### 1) Queue Object can be made as ->
@@ -72,5 +76,13 @@ The following class helps in implementing Stack/Queue ADT.
 
 
 <h4><strong> NOTE :- None of these classes support traversing options other than Print functions because traversing through a linked list implemented Stack And Queue class is highly inefficient and an array should be considered instead.</strong></h4><br>
+
+## Example
+A post-fix calculator has been made using the stack class as an example in example.cpp<br>
+To run the app, go to terminal and write (while being in the same directory as readme)
+```
+$ g++ example.cpp -o prog # Prog is the name of executable that would be generated.
+$ ./prog # or you can double click on prog in mac/linux.
+```
 
 #### ~Neverwannafly
