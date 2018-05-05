@@ -2,19 +2,19 @@
 The following class helps in implementing Stack/Queue ADT.
 
 ## How to implement the Class ->
-### 1) Add StacksAndQueues.hpp StacksAndQueues.cpp and StacksQueues.hpp into your project and keep them in the same directory.
-### 2) use include "StacksQueues.hpp" in your C++ file to use the StackAndQueueClass.
+1) Add StacksAndQueues.hpp StacksAndQueues.cpp and StacksQueues.hpp into your project and keep them in the same directory.
+2) use include "StacksQueues.hpp" in your C++ file to use the StackAndQueueClass.
 
 ## How to make objects of Class ->
-### 1) Queue Object can be made as ->
+#### 1) Queue Object can be made as ->
         Queue<dataType> newQueue;
         dataType = {int, float, long, string, char};
-### 2) Stack Object can be made as ->
+#### 2) Stack Object can be made as ->
         Stack<dataType> newStack;
         dataType = {int, float, long, string, char};
         
 ## Functions of StackAndQueueClass ->
-### #QUEUE CLASS
+#### #QUEUE CLASS
         > newQueue.enqueue(dataType data);
         //Adds a data to Queue object newQueue.
           
@@ -45,7 +45,7 @@ The following class helps in implementing Stack/Queue ADT.
         > newQueue.printReverse();
         //Prints the Queue object newQueue in reverse direction.
 
-### #STACK CLASS
+#### #STACK CLASS
         > newStack.push(dataType data);
         //Adds a data to Stack object newStack.
 
@@ -70,4 +70,7 @@ The following class helps in implementing Stack/Queue ADT.
         > newStack.print();
         //Prints the Stack object newStacke.
 
-## NOTE :- None of these classes support traversing options other than Print functions because traversing through a linked list implemented Stack And Queue class is highly inefficient and an array should be considered instead.
+
+<h4><strong> NOTE :- None of these classes support traversing options other than Print functions because traversing through a linked list implemented Stack And Queue class is highly inefficient and an array should be considered instead.</strong></h4><br>
+
+#### ~Neverwannafly
