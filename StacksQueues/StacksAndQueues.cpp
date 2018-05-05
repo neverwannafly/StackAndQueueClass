@@ -1,5 +1,4 @@
 #include "StacksAndQueues.hpp"
-using namespace std;
 
 // ******	QUEUE CLASS ***** //
 //Public Member Functions
@@ -119,18 +118,18 @@ void Queue<type>::printPrivate(Node<type> *nodePtr, bool isPrintDirectionHead) c
     if(isPrintDirectionHead) {
         Node<type> *tempPtr = nodePtr;
         while(tempPtr!=NULL) {
-            cout << tempPtr->data << " ";
+            std::cout << tempPtr->data << " ";
             tempPtr = tempPtr->next;
         }
-        cout << endl;
+        std::cout << std::endl;
     }
     else {
         Node<type> *tempPtr = nodePtr;
         while(tempPtr!=NULL) {
-            cout << tempPtr->data << " ";
+            std::cout << tempPtr->data << " ";
             tempPtr = tempPtr->prev;
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 }
 
@@ -161,7 +160,7 @@ void Queue<type>::dequeue() {
         dequeuePrivate(head, tail);
     }
     catch(...) {
-        cerr << "Queue Already Empty\n";
+        std::cerr << "Queue Already Empty\n";
     }
 }
 
@@ -175,7 +174,7 @@ type Queue<type>::dequeueAndReturnData() {
         return dequeueAndReturnDataPrivate(head, tail);
     }
     catch(...) {
-        cerr << "Queue Already Empty\n";
+        std::cerr << "Queue Already Empty\n";
         return 0;
     }
 }
@@ -188,7 +187,7 @@ type Queue<type>::returnFirst() const {
         return returnPrivate(head);
     }
     catch(...) {
-        cerr << "Queue is Empty\n";
+        std::cerr << "Queue is Empty\n";
         return 0;
     }
 }
@@ -198,7 +197,7 @@ type Queue<type>::returnLast() const {
         return returnPrivate(tail);
     }
     catch(...) {
-        cerr << "Queue is empty\n";
+        std::cerr << "Queue is empty\n";
         return 0;
     }
 }
@@ -303,10 +302,10 @@ template <class type>
 void Stack<type>::printPrivate(Node<type> *nodePtr) const {
     Node<type> *tempPtr = nodePtr;
     while(tempPtr!=NULL) {
-        cout << tempPtr->data << " ";
+        std::cout << tempPtr->data << " ";
         tempPtr = tempPtr->next;
     }
-    cout << endl;
+    std::cout << std::endl;
 }
 
 //Public Member Functions
@@ -335,7 +334,7 @@ void Stack<type>::pop() {
         popPrivate(head);
     }
     catch(...) {
-        cerr << "Stack is already empty\n";
+        std::cerr << "Stack is already empty\n";
     }
 }
 template <class type>
@@ -349,7 +348,7 @@ type Stack<type>::popAndReturnData() {
         return 0;
     }
     catch(...) {
-        cerr << "Stack is already empty\n";
+        std::cerr << "Stack is already empty\n";
         return 0;
     }
 }
@@ -362,7 +361,7 @@ type Stack<type>::returnTop() const {
         return returnTopPrivate(head);
     }
     catch(...) {
-        cerr << "Stack is already empty\n";
+        std::cerr << "Stack is already empty\n";
         return 0;
     }
 }

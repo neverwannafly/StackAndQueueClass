@@ -1,13 +1,12 @@
 #include "StacksQueues/StacksQueues.hpp"
 #include <cmath>
-using namespace std;
 
 // This is an application of Stack ADT.
 // Post-Fix Calculator.
 // Symbols supported are as follows :
-// 	-> Multiply     *
-//  -> Add          +
-//  -> Subtract     -
+// 	-> Multiply		*
+//  -> Add			+
+//  -> Subtract		-
 //  -> Divide		/
 //  -> Exponent		^
 //
@@ -16,7 +15,7 @@ using namespace std;
 // classes to solve other problems involving use of stacks and 
 // queues. 
 
-bool isCharacterNumber(string character) {
+bool isCharacterNumber(std::string character) {
 	bool condition = false;
 	char numberArray[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 	 
@@ -37,12 +36,12 @@ bool isCharacterNumber(string character) {
 int main() {
 
 	Stack<float> calculator;
-	string tempStr;
+	std::string tempStr;
 	float tempInt;
 
-	while(cin >> tempStr) {
+	while(std::cin >> tempStr) {
 		if(isCharacterNumber(tempStr)) {
-			calculator.push(stof(tempStr));
+			calculator.push(std::stof(tempStr));
 		}
 		else {
 			float num1, num2;
@@ -50,27 +49,27 @@ int main() {
 				num1 = calculator.popAndReturnData();
 				num2 = calculator.popAndReturnData();
 			} catch(...) {
-				cerr << "Invalid Postfix Notation\n";
+				std::cerr << "Invalid Postfix Notation\n";
 			}
 			float result;
 
 			try {
 				if(tempStr=="*") {
 					result = num1*num2;
-					cout << calculator.pushAndReturnData(result) << endl;
+					std::cout << calculator.pushAndReturnData(result) << std::endl;
 				} 
 				else if(tempStr=="+") {
 					result = num1+num2;
-					cout << calculator.pushAndReturnData(result) << endl;
+					std::cout << calculator.pushAndReturnData(result) << std::endl;
 				}
 				else if(tempStr=="-") {
 					result = num1-num2;
-					cout << calculator.pushAndReturnData(result) << endl;
+					std::cout << calculator.pushAndReturnData(result) << std::endl;
 				}
 				else if(tempStr=="/") {
 					if(num2!=0) {
 						result = num1/num2;
-						cout << calculator.pushAndReturnData(result) << endl;
+						std::cout << calculator.pushAndReturnData(result) << std::endl;
 					}
 					else {
 						calculator.push(num1);
@@ -80,7 +79,7 @@ int main() {
 				}
 				else if(tempStr=="^") {
 					result = pow(num1, num2);
-					cout << calculator.pushAndReturnData(result) << endl;
+					std::cout << calculator.pushAndReturnData(result) << std::endl;
 				}
 				else {
 					calculator.push(num1);
@@ -89,7 +88,7 @@ int main() {
 				}
 			}
 			catch(const char* &e) {
-				cerr << e;
+				std::cerr << e;
 			}
 		}
 	}
