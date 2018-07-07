@@ -12,7 +12,7 @@ Node<type>::Node(type data) {
 }
 
 // ******	QUEUE CLASS ***** //
-//Private Member Functions
+// Private Member Functions
 // -> Modifier Member Functions
 
 template <class type>
@@ -133,7 +133,7 @@ void Queue<type>::printPrivate(Node<type> *nodePtr, bool isPrintDirectionHead) c
     }
 }
 
-//Public Member Functions
+// Public Member Functions
 // -> Constructor and Destructor
 
 template <class type>
@@ -219,7 +219,7 @@ void Queue<type>::printReverse() const {
 }
 
 // ***** STACK CLASS ***** //
-//Private Member Functions
+// Private Member Functions
 // -> Modifier Member Functions
 
 template <class type>
@@ -308,7 +308,7 @@ void Stack<type>::printPrivate(Node<type> *nodePtr) const {
     std::cout << std::endl;
 }
 
-//Public Member Functions
+// Public Member Functions
 // -> Constructor and Destructor
 
 template <class type>
